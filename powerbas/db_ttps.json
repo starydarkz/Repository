@@ -1,1 +1,6 @@
-T001, net user command
+{
+  {"T001":{
+    "ttp_name":"T001 - Enumerate Windows Local Users",
+    "command":"net user" 
+  }  
+}
