@@ -1,5 +1,9 @@
 {"T001":{
     "ttp_name":"T001 - Enumerate Windows Local Users",
     "command":"net user" 
-  }  
+  },
+"T002":{
+    "ttp_name":"T002 - Enumerate Windows Domain Users",
+    "command":"net user /domain" 
+  }
 }
