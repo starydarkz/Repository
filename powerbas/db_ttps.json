@@ -1,9 +1,11 @@
 {"T1592.001":{
     "ttp_name":"T1592.001 - Enumerate PlugNPlay Camera",
-    "command": "Get-CimInstance -Query \"SELECT * FROM Win32_PnPEntity WHERE (PNPClass = 'Image' OR PNPClass = 'Camera')\" | Out-File T1592.001.txt"
+    "command": "Get-CimInstance -Query \"SELECT * FROM Win32_PnPEntity WHERE (PNPClass = 'Image' OR PNPClass = 'Camera')\" | Out-File T1592.001.txt",
+    "Clear":""
   },
 "T1595.003":{
     "ttp_name":"T1595.003 - Active Scanning: Wordlist Scanning",
-    "command":" GET SCRIPT, GET DICT, ----> Import-Module \"PathToAtomicsFolder/T1595.003/src/WebServerScan.ps1\"\nInvoke-WordlistScan -Target \"#{target}\" -Wordlist \"#{wordlist}\" -Timeout \"#{request_timeout}\" -OutputFile \"#{output_file}\"\nWrite-Host \"Scan complete. Results saved to: #{output_file}\"" 
+    "command":" GET SCRIPT, GET DICT, ----> Import-Module \"PathToAtomicsFolder/T1595.003/src/WebServerScan.ps1\"\nInvoke-WordlistScan -Target \"#{target}\" -Wordlist \"#{wordlist}\" -Timeout \"#{request_timeout}\" -OutputFile \"#{output_file}\"\nWrite-Host \"Scan complete. Results saved to: #{output_file}\"",
+        "Clear":""
   }
 }
