@@ -4,6 +4,6 @@
   },
 "T002":{
     "ttp_name":"T002 - Enumerate Windows Domain Users",
-    "command":"net user /domain" 
+    "command":" GET SCRIPT, GET DICT, ----> Import-Module \"PathToAtomicsFolder/T1595.003/src/WebServerScan.ps1\"\nInvoke-WordlistScan -Target \"#{target}\" -Wordlist \"#{wordlist}\" -Timeout \"#{request_timeout}\" -OutputFile \"#{output_file}\"\nWrite-Host \"Scan complete. Results saved to: #{output_file}\"" 
   }
 }
