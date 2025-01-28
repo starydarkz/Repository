@@ -1,6 +1,6 @@
 {"T1592.001":{
     "ttp_name":"T1592.001 - Enumerate PlugNPlay Camera",
-    "command": "Get-CimInstance -Query \"SELECT * FROM Win32_PnPEntity WHERE (PNPClass = 'Image' OR PNPClass = 'Camera')"
+    "command": "Get-CimInstance -Query \"SELECT * FROM Win32_PnPEntity WHERE (PNPClass = 'Image' OR PNPClass = 'Camera')\""
   },
 "T002":{
     "ttp_name":"T002 - Enumerate Windows Domain Users",
