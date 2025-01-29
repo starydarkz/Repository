@@ -1,11 +1,12 @@
 {"T1592.001":{
     "ttp_name":"T1592.001 - Enumerate PlugNPlay Camera",
     "command": "Get-CimInstance -Query \"SELECT * FROM Win32_PnPEntity WHERE (PNPClass = 'Image' OR PNPClass = 'Camera')\" | Out-File T1592.001.txt",
-    "Clear":""
+    "Clear":"None"
   },
 "T1595.003":{
     "ttp_name":"T1595.003 - Active Scanning: Wordlist Scanning",
-    "command":" GET SCRIPT, GET DICT, ----> Import-Module \"PathToAtomicsFolder/T1595.003/src/WebServerScan.ps1\"\nInvoke-WordlistScan -Target \"#{target}\" -Wordlist \"#{wordlist}\" -Timeout \"#{request_timeout}\" -OutputFile \"#{output_file}\"\nWrite-Host \"Scan complete. Results saved to: #{output_file}\"",
+    "command":"writeh-host 'function Test-Target { param ([string]$Target, [string]$Timeout = 5) try { Invoke-WebRequest -Uri $Target -ErrorAction Stop -TimeoutSec $Timeout -SkipHttpErrorCheck; return $true } catch { return $false } }; function Invoke-WordlistScan { param ([string]$Target, [string]$Wordlist, [string]$OutputFile, [string]$Timeout) if ($(Test-Target -Target $Target -Timeout $Timeout) -eq $false) { Write-Output "Error: Target is not reachable"; exit 1 }; [string[]]$Wordlist = Get-Content $Wordlist; $Results = @(); foreach ($Word in $Wordlist) { $Url = $Target + "/" + $Word; $Response = Invoke-WebRequest -Uri "$Url" -Method HEAD -ErrorAction SilentlyContinue -TimeoutSec $Timeout -SkipHttpErrorCheck; if ($Response.StatusCode -ge 200 -and $
+' GET SCRIPT, GET DICT, ----> Import-Module \"PathToAtomicsFolder/T1595.003/src/WebServerScan.ps1\"\nInvoke-WordlistScan -Target \"#{target}\" -Wordlist \"#{wordlist}\" -Timeout \"#{request_timeout}\" -OutputFile \"#{output_file}\"\nWrite-Host \"Scan complete. Results saved to: #{output_file}\"",
         "Clear":""
   }
 }
